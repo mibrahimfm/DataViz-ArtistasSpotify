@@ -1,0 +1,58 @@
+,name,album,release_date,track_number,id,uri,acousticness,danceability,energy,instrumentalness,liveness,loudness,speechiness,tempo,valence,popularity,duration_ms
+0,One More Year,The Slow Rush,2020-02-14,1,5ozqshq2dtU7SYCpCBu0NE,spotify:track:5ozqshq2dtU7SYCpCBu0NE,0.057,0.602,0.88,0.46,0.284,-5.414,0.0354,114.009,0.493,60,324013
+1,Instant Destiny,The Slow Rush,2020-02-14,2,6WCXBUFa0z3l9DoOY3k5Xe,spotify:track:6WCXBUFa0z3l9DoOY3k5Xe,0.0226,0.381,0.829,0.000274,0.402,-4.564,0.0598,165.935,0.509,59,194706
+2,Borderline,The Slow Rush,2020-02-14,3,5hM5arv9KDbCHS0k9uqwjr,spotify:track:5hM5arv9KDbCHS0k9uqwjr,0.0406,0.621,0.873,9.1e-06,0.0824,-3.067,0.0369,97.96,0.873,85,237800
+3,Posthumous Forgiveness,The Slow Rush,2020-02-14,4,1KcOU0q9AMXV9xi4tSzzCc,spotify:track:1KcOU0q9AMXV9xi4tSzzCc,0.0508,0.367,0.613,0.00171,0.282,-5.646,0.0297,153.978,0.0966,63,366066
+4,Breathe Deeper,The Slow Rush,2020-02-14,5,3LbZIhU0smEU5SUnxod4j4,spotify:track:3LbZIhU0smEU5SUnxod4j4,0.0245,0.664,0.848,0.000127,0.172,-4.51,0.0322,104.998,0.502,68,372866
+5,Tomorrow's Dust,The Slow Rush,2020-02-14,6,666PdikRnUzdvjT9p5wWND,spotify:track:666PdikRnUzdvjT9p5wWND,0.0124,0.616,0.804,0.0998,0.553,-5.568,0.0427,99.002,0.627,56,326840
+6,On Track,The Slow Rush,2020-02-14,7,0IuE6FnXPCdZ8NLuuvJRhb,spotify:track:0IuE6FnXPCdZ8NLuuvJRhb,0.116,0.388,0.648,4.19e-06,0.082,-5.578,0.038,163.861,0.112,57,301786
+7,Lost In Yesterday,The Slow Rush,2020-02-14,8,5JWPUEov2wlX7c0jhYZpeB,spotify:track:5JWPUEov2wlX7c0jhYZpeB,0.0295,0.569,0.84,0.000118,0.0995,-4.123,0.118,183.059,0.749,71,249586
+8,Is It True,The Slow Rush,2020-02-14,9,6RZmhpvukfyeSURhf4kZ0d,spotify:track:6RZmhpvukfyeSURhf4kZ0d,0.00307,0.731,0.664,0.35,0.133,-5.474,0.0302,118.018,0.661,74,239266
+9,It Might Be Time,The Slow Rush,2020-02-14,10,558ubozatFQlweufvHa3Ip,spotify:track:558ubozatFQlweufvHa3Ip,0.021,0.585,0.781,0.000187,0.627,-3.808,0.0457,115.946,0.336,60,273026
+10,Glimmer,The Slow Rush,2020-02-14,11,1unBUyjeQUDiJ8N89XiDrr,spotify:track:1unBUyjeQUDiJ8N89XiDrr,0.136,0.673,0.627,0.424,0.366,-8.469,0.0377,117.911,0.761,62,128826
+11,One More Hour,The Slow Rush,2020-02-14,12,0mO6oS60RST2sWmN2FKknP,spotify:track:0mO6oS60RST2sWmN2FKknP,0.108,0.647,0.398,0.107,0.148,-8.63,0.0283,102.029,0.32,76,432560
+12,Let It Happen,Currents,2015-07-17,1,2X485T9Z5Ly0xyaghN73ed,spotify:track:2X485T9Z5Ly0xyaghN73ed,0.00462,0.602,0.881,0.0266,0.111,-5.875,0.0443,125.012,0.577,82,467586
+13,Nangs,Currents,2015-07-17,2,1cCbsojaA6GIT7Y3zuMJ1q,spotify:track:1cCbsojaA6GIT7Y3zuMJ1q,0.159,0.536,0.526,0.847,0.128,-9.754,0.181,167.608,0.434,76,107533
+14,The Moment,Currents,2015-07-17,3,1UYj8qTWjneZJDVjUMwMub,spotify:track:1UYj8qTWjneZJDVjUMwMub,0.000296,0.547,0.827,0.101,0.0858,-6.036,0.0468,119.089,0.451,69,255413
+15,Yes I'm Changing,Currents,2015-07-17,4,0xtIp0lgccN85GfGOekS5L,spotify:track:0xtIp0lgccN85GfGOekS5L,0.108,0.373,0.609,0.000427,0.0755,-7.0,0.0316,179.955,0.354,72,270680
+16,Eventually,Currents,2015-07-17,5,5M4yti0QxgqJieUYaEXcpw,spotify:track:5M4yti0QxgqJieUYaEXcpw,0.0158,0.424,0.615,0.000389,0.0844,-6.217,0.0325,77.935,0.155,80,318591
+17,Gossip,Currents,2015-07-17,6,79chzfFIIq7cHkqcYYORk0,spotify:track:79chzfFIIq7cHkqcYYORk0,0.974,0.547,0.208,0.973,0.104,-17.949,0.0369,119.474,0.347,60,55413
+18,The Less I Know The Better,Currents,2015-07-17,7,6K4t31amVTZDgR3sKmwUJJ,spotify:track:6K4t31amVTZDgR3sKmwUJJ,0.0115,0.64,0.74,0.00678,0.167,-4.083,0.0284,116.879,0.785,88,216320
+19,Past Life,Currents,2015-07-17,8,4a9fW33mYR8LhXBOLUhbfF,spotify:track:4a9fW33mYR8LhXBOLUhbfF,0.211,0.371,0.778,0.00141,0.181,-7.196,0.0559,145.734,0.288,62,228040
+20,Disciples,Currents,2015-07-17,9,2gNfxysfBRfl9Lvi9T3v6R,spotify:track:2gNfxysfBRfl9Lvi9T3v6R,0.078,0.661,0.869,0.924,0.398,-5.477,0.0334,126.971,0.8,75,108546
+21,'Cause I'm A Man,Currents,2015-07-17,10,2O99aywAVBhaPrsiJ6zbSS,spotify:track:2O99aywAVBhaPrsiJ6zbSS,0.108,0.547,0.695,0.00301,0.14,-4.969,0.0337,144.684,0.641,65,241986
+22,Reality In Motion,Currents,2015-07-17,11,3I7OmVsk4Hm5LBbs2GmhlD,spotify:track:3I7OmVsk4Hm5LBbs2GmhlD,0.154,0.536,0.915,0.000788,0.372,-4.993,0.0581,115.037,0.472,62,252026
+23,Love/Paranoia,Currents,2015-07-17,12,5h9hkYIBWTZYFRmF6Iz1gt,spotify:track:5h9hkYIBWTZYFRmF6Iz1gt,0.0055,0.502,0.699,0.0,0.171,-5.528,0.0333,111.024,0.354,69,185773
+24,"New Person, Same Old Mistakes",Currents,2015-07-17,13,52ojopYMUzeNcudsoz7O9D,spotify:track:52ojopYMUzeNcudsoz7O9D,0.272,0.47,0.809,0.00671,0.0491,-6.74,0.0495,151.836,0.49,82,363240
+25,Endors Toi - Live,Live Versions,2014-05-16,1,5cKbrCR7TGuvyRFLcjcwaS,spotify:track:5cKbrCR7TGuvyRFLcjcwaS,0.0543,0.389,0.791,0.058,0.892,-7.098,0.0582,129.026,0.277,37,357108
+26,Why Won't You Make Up Your Mind? - Live,Live Versions,2014-05-16,2,0bnlXSOf9gxMDGqtn5Hphq,spotify:track:0bnlXSOf9gxMDGqtn5Hphq,0.049,0.488,0.957,0.334,0.202,-7.322,0.0742,128.228,0.166,37,261550
+27,Sestri Levante - Live,Live Versions,2014-05-16,3,72YV32MfLwaJLbXzU6XL5N,spotify:track:72YV32MfLwaJLbXzU6XL5N,0.0726,0.413,0.832,0.0475,0.225,-6.782,0.0322,102.448,0.0886,40,117572
+28,Mind Mischief - Live,Live Versions,2014-05-16,4,6qi0vMwfN9qRh8wzrOyvp7,spotify:track:6qi0vMwfN9qRh8wzrOyvp7,0.0884,0.286,0.833,0.626,0.908,-6.147,0.0497,161.551,0.419,39,236284
+29,Desire Be Desire Go - Live,Live Versions,2014-05-16,5,6CCcab1AlRegusqwa1hE7E,spotify:track:6CCcab1AlRegusqwa1hE7E,0.0288,0.145,0.845,0.000423,0.856,-4.819,0.0565,149.816,0.486,35,324139
+30,Half Full Glass Of Wine - Live,Live Versions,2014-05-16,6,0vUjASEiv1JHaekO7YKrjP,spotify:track:0vUjASEiv1JHaekO7YKrjP,0.0619,0.28,0.813,0.22,0.982,-6.753,0.0538,121.683,0.233,38,494209
+31,Be Above It - Live,Live Versions,2014-05-16,7,1ByluhDIW0cUGOzt76a2H3,spotify:track:1ByluhDIW0cUGOzt76a2H3,0.171,0.602,0.971,0.741,0.974,-7.409,0.0566,119.985,0.186,35,449314
+32,Feels Like We Only Go Backwards - Live,Live Versions,2014-05-16,8,0ukgt6jpMDfKvLPsch2R2a,spotify:track:0ukgt6jpMDfKvLPsch2R2a,0.0711,0.171,0.885,1.14e-06,0.964,-4.551,0.0621,145.696,0.298,37,176496
+33,Apocalypse Dreams - Live,Live Versions,2014-05-16,9,6mn0sw5UCR6DHZtuB82ft7,spotify:track:6mn0sw5UCR6DHZtuB82ft7,0.0628,0.334,0.836,0.159,0.725,-5.822,0.061,127.8,0.256,36,471774
+34,Be Above It,Lonerism,2012-01-01,1,2Gl1Qdx5Px5kVYe0PQoGI0,spotify:track:2Gl1Qdx5Px5kVYe0PQoGI0,0.367,0.746,0.976,0.274,0.111,-6.073,0.0682,118.965,0.384,53,201960
+35,Endors Toi,Lonerism,2012-01-01,2,0YuePEX4KyfLIPMdNLPwgQ,spotify:track:0YuePEX4KyfLIPMdNLPwgQ,0.0302,0.242,0.924,0.461,0.36,-3.327,0.0804,129.155,0.33,58,186640
+36,Apocalypse Dreams,Lonerism,2012-01-01,3,7qU7vhCPKhkDiJYGoboISc,spotify:track:7qU7vhCPKhkDiJYGoboISc,0.249,0.496,0.929,0.131,0.0677,-2.279,0.0503,127.998,0.267,58,356946
+37,Mind Mischief,Lonerism,2012-01-01,4,6ewQE1dNPv9qqlnB1CxrvM,spotify:track:6ewQE1dNPv9qqlnB1CxrvM,0.0815,0.25,0.942,0.00097,0.367,-3.235,0.0545,161.333,0.822,63,271880
+38,Music To Walk Home By,Lonerism,2012-01-01,5,0pJTrMWCiR0TuJ5FApIqrz,spotify:track:0pJTrMWCiR0TuJ5FApIqrz,0.00609,0.396,0.884,0.0876,0.0578,-4.358,0.0612,101.097,0.485,52,312213
+39,Why Won't They Talk To Me?,Lonerism,2012-01-01,6,6IM45SqAURH6PrvziDs1RQ,spotify:track:6IM45SqAURH6PrvziDs1RQ,0.553,0.516,0.871,0.0282,0.0841,-5.21,0.0503,129.946,0.17,59,286093
+40,Feels Like We Only Go Backwards,Lonerism,2012-01-01,7,0LtOwyZoSNZKJWHqjzADpW,spotify:track:0LtOwyZoSNZKJWHqjzADpW,0.0277,0.303,0.9,0.635,0.11,-2.352,0.0574,149.508,0.491,79,192960
+41,Keep On Lying,Lonerism,2012-01-01,8,2UYHP0RQqPFvue0Ygs5Amm,spotify:track:2UYHP0RQqPFvue0Ygs5Amm,0.0783,0.485,0.814,0.0128,0.273,-4.894,0.0356,123.997,0.658,55,353933
+42,Elephant,Lonerism,2012-01-01,9,6qZjm61s6u8Ead9sWxCDro,spotify:track:6qZjm61s6u8Ead9sWxCDro,0.562,0.598,0.553,0.157,0.257,-6.742,0.0397,123.075,0.533,76,211226
+43,She Just Won't Believe Me,Lonerism,2012-01-01,10,4Klyx5dYqZV9YefSecDwDv,spotify:track:4Klyx5dYqZV9YefSecDwDv,0.219,0.138,0.28,0.0204,0.37,-7.66,0.0368,141.335,0.0752,52,57173
+44,Nothing That Has Happened So Far Has Been Anything We Could Control,Lonerism,2012-01-01,11,33JMMgxQKL3zJsZeMNC3gR,spotify:track:33JMMgxQKL3zJsZeMNC3gR,0.0444,0.348,0.864,0.483,0.0873,-3.564,0.0421,99.851,0.359,51,359946
+45,Sun's Coming Up,Lonerism,2012-01-01,12,7Jk2pg4g0c5rz5AfkEGMRp,spotify:track:7Jk2pg4g0c5rz5AfkEGMRp,0.956,0.286,0.806,0.0764,0.615,-7.056,0.0937,123.858,0.328,47,320293
+46,It Is Not Meant To Be,InnerSpeaker,2010-05-21,1,3Yub3anoLj8w58TVpEXUJv,spotify:track:3Yub3anoLj8w58TVpEXUJv,0.0133,0.429,0.895,0.00127,0.45,-4.677,0.0412,102.062,0.455,57,321533
+47,Desire Be Desire Go,InnerSpeaker,2010-05-21,2,4LD5p1sSp97yp86E2zDZwK,spotify:track:4LD5p1sSp97yp86E2zDZwK,0.069,0.372,0.853,0.00529,0.139,-5.046,0.0559,150.814,0.453,54,266306
+48,Alter Ego,InnerSpeaker,2010-05-21,3,6SmV1Oo24nCZBPzIYkL4HZ,spotify:track:6SmV1Oo24nCZBPzIYkL4HZ,0.0146,0.317,0.846,0.13,0.1,-3.624,0.0538,129.01,0.198,57,287906
+49,Lucidity,InnerSpeaker,2010-05-21,4,4EC81w5nKG5tZlkHyKT2vO,spotify:track:4EC81w5nKG5tZlkHyKT2vO,0.109,0.367,0.872,0.0944,0.351,-6.301,0.0641,147.015,0.496,55,271720
+50,Why Won't You Make Up Your Mind?,InnerSpeaker,2010-05-21,5,4SgcE7RxpK3ydWrjoAQH1K,spotify:track:4SgcE7RxpK3ydWrjoAQH1K,0.00747,0.458,0.84,0.204,0.23,-4.812,0.0566,129.03,0.543,59,199093
+51,Solitude Is Bliss,InnerSpeaker,2010-05-21,6,2a2MbiJN2skOxohykOVcss,spotify:track:2a2MbiJN2skOxohykOVcss,0.00811,0.588,0.849,0.000161,0.131,-5.027,0.0596,104.012,0.629,60,235866
+52,Jeremy's Storm,InnerSpeaker,2010-05-21,7,6hjVajm2JfjhXs803HqqMO,spotify:track:6hjVajm2JfjhXs803HqqMO,0.0164,0.449,0.945,0.914,0.0912,-6.652,0.0858,127.956,0.155,46,328813
+53,Expectation,InnerSpeaker,2010-05-21,8,1FnHpM2zimTALdIvuxFoNM,spotify:track:1FnHpM2zimTALdIvuxFoNM,0.0209,0.447,0.836,0.00399,0.0736,-5.137,0.0584,139.94,0.177,48,362466
+54,The Bold Arrow Of Time,InnerSpeaker,2010-05-21,9,7r7yAFxq6CwakQB5NrJskh,spotify:track:7r7yAFxq6CwakQB5NrJskh,0.799,0.337,0.511,0.567,0.297,-6.645,0.0372,122.91,0.27,45,265106
+55,Runway Houses City Clouds,InnerSpeaker,2010-05-21,10,3iohh4bLsUKefmjHw5jhbq,spotify:track:3iohh4bLsUKefmjHw5jhbq,0.0715,0.442,0.754,0.0478,0.118,-6.098,0.0509,118.999,0.321,46,435106
+56,I Don't Really Mind,InnerSpeaker,2010-05-21,11,0j0majKoNlF7GkwA8xNQHG,spotify:track:0j0majKoNlF7GkwA8xNQHG,0.599,0.464,0.831,0.0203,0.131,-6.006,0.0724,137.059,0.268,46,227546
