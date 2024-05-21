@@ -1,0 +1,30 @@
+.nav {
+  --icon-size: 24px;
+
+  height: 100%;
+  width: var(--drawer-collapsed-width);
+
+  transition: width var(--transition-default);
+
+  border-right: 1px solid var(--colors-border-primary);
+  overflow: hidden;
+}
+
+.nav[data-expanded='true'] {
+  width: var(--drawer-extended-width);
+}
+
+.button {
+  height: 64px;
+  width: 100%;
+  border-radius: 0;
+  font-size: var(--font-content-small);
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacings-xsmall);
+
+  padding: 0 calc((var(--drawer-collapsed-width) / 2) - (var(--icon-size) / 2));
+}
