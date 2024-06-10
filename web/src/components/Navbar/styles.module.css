@@ -1,0 +1,84 @@
+.header {
+  --__horizontal-padding: var(--spacings-small);
+
+  width: 100%;
+  height: var(--header-height);
+  padding-right: 0 var(--__horizontal-padding);
+
+  display: flex;
+  align-items: center;
+  gap: var(--__horizontal-padding);
+
+  background-color: var(--colors-primary);
+  box-shadow: var(--box-shadow-main);
+}
+
+.header[data-is-expanded='true'] {
+  padding-left: var(--drawer-extended-width);
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 100%;
+  width: var(--drawer-collapsed-width);
+  padding: var(--spacings-xxxsmall);
+
+  transition: var(--transition-default);
+}
+
+.buttonWrapper[data-is-expanded='true'] {
+  width: var(--drawer-extended-width);
+
+  background-color: white;
+}
+
+.buttonWrapper > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button {
+  position: relative;
+  width: 48px;
+  height: 32px;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+
+  color: var(--colors-content-primary);
+  transition: var(--transition-default);
+}
+
+.icon.arrow {
+  /* For some reason this icon is not centered */
+  transform: translate(-30%, -50%);
+  font-size: var(--font-content-xsmall);
+}
+
+.icon[data-is-expanded='true'] {
+  color: black;
+}
+
+.icon.arrow[data-is-expanded='true'] {
+  opacity: 1;
+}
+
+.icon.menu[data-is-expanded='false'] {
+  opacity: 1;
+}
+
+.title {
+  font-size: var(--font-content-large);
+  color: var(--colors-content-primary);
+}

@@ -1,0 +1,101 @@
+:root {
+  /* Font */
+  --font-content-xxsmall: 1rem;
+  --font-content-xsmall: 1.2rem;
+  --font-content-small: 1.4rem;
+  --font-content-regular: 1.6rem;
+  --font-content-large: 1.8rem;
+  --font-content-xlarge: 2rem;
+  --font-content-xxlarge: 2.4rem;
+  --font-content-xxxlarge: 3.2rem;
+  --font-heading-xsmall: 2.2rem;
+  --font-heading-small: 3rem;
+  --font-heading-regular: 3.6rem;
+  --font-heading-large: 4rem;
+  --font-heading-xlarge: 4.8rem;
+  --font-heading-xxlarge: 6.4rem;
+  --font-heading-xxxlarge: 7.2rem;
+
+  /* Spacings */
+  --spacings-xxxxsmall: 0.4rem;
+  --spacings-xxxsmall: 0.8rem;
+  --spacings-xxsmall: 1.2rem;
+  --spacings-xsmall: 1.6rem;
+  --spacings-small: 2.4rem;
+  --spacings-medium: 3.2rem;
+  --spacings-large: 4rem;
+  --spacings-xlarge: 4.8rem;
+  --spacings-xxlarge: 5.6rem;
+  --spacings-xxxlarge: 8rem;
+
+  /* Colors */
+  --colors-primary: #0fa4af;
+  --colors-primary-dark: #024950;
+  --colors-primary-light: #afdde5;
+  --colors-secondary: #964734;
+  --colors-background: #003135;
+  --colors-content-primary: #ffffff;
+  --colors-content-secondary: #964734;
+  --colors-border-primary: rgba(0, 0, 0, 0.12);
+
+  /* Sizes */
+  --header-height: 64px;
+  --drawer-collapsed-width: 70px;
+  --drawer-extended-width: 240px;
+
+  /* Transition */
+  --transition-default: 0.3s ease-in-out;
+  --transition-fast: 0.1s ease-in-out;
+  --transition-navbar: 0.3s linear;
+
+  /* Box Shadow */
+  --box-shadow-main: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+
+  /* Radius */
+  --radius-small: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#__next,
+#root {
+  height: 100%;
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: var(--transition-default);
+  border-radius: var(--radius-small);
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
