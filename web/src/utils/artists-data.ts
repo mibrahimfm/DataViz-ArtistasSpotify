@@ -1,15 +1,5 @@
-import { Song } from '@/types'
+import { ArtistsData } from '@/types'
 import { promises as fs } from 'fs'
-
-type ArtistsData = {
-  beatles: Song[]
-  ed_sheeran: Song[]
-  elton_john: Song[]
-  metallica: Song[]
-  rolling_stones: Song[]
-  tame_impala: Song[]
-  taylor_swift: Song[]
-}
 
 const ARTISTS = [
   'beatles',
