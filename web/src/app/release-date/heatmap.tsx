@@ -61,7 +61,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ artist, data }) => {
             x: heatmapData.x,
             y: heatmapData.y,
             type: 'heatmap',
-            colorscale: 'YlGnBu',
+            colorscale: 'Hot',
             // @ts-ignore
             text: heatmapData.hoverText,
             hovertemplate: '%{text}<extra></extra>'
