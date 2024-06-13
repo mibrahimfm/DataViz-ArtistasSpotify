@@ -1,56 +1,71 @@
+// components/Heatmap.tsx
 'use client'
 
-import { ArtistsData, Song } from '@/types'
-import { capitalize } from '@/utils/capitalize'
 import React from 'react'
 import Plot from 'react-plotly.js'
+import { ArtistsData } from '@/types'
+import { capitalize } from '@/utils/capitalize'
 
 interface HeatmapProps {
-  artist: keyof ArtistsData
   data: ArtistsData
 }
 
-const createHeatmapData = (songs: Song[]) => {
-  const allData = songs.map((song) => ({
-    release_date: new Date(song.release_date)
-  }))
+const createHeatmapData = (data: ArtistsData) => {
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ]
+  const artistNames = Object.keys(data) as Array<keyof ArtistsData>
+  const monthCounts = artistNames.map(() => new Array(12).fill(0))
+  const monthPopularity = artistNames.map(() => new Array(12).fill(0))
 
-  const yearMonthCount: { [key: string]: number } = {}
-
-  allData.forEach(({ release_date }) => {
-    const year = release_date.getFullYear()
-    const month = release_date.getMonth() + 1 // JavaScript months are 0-11
-    const key = `${year}-${month.toString().padStart(2, '0')}`
-    if (!yearMonthCount[key]) {
-      yearMonthCount[key] = 0
-    }
-    yearMonthCount[key]++
+  artistNames.forEach((artist, artistIndex) => {
+    data[artist].forEach((song) => {
+      const releaseDate = new Date(song.release_date)
+      const month = releaseDate.getMonth()
+      monthCounts[artistIndex][month]++
+      monthPopularity[artistIndex][month] += song.popularity
+    })
   })
 
-  const years = Array.from(
-    new Set(allData.map(({ release_date }) => release_date.getFullYear()))
-  )
-  const months = Array.from({ length: 12 }, (_, i) => i + 1)
-
-  const z = months.map((month) =>
-    years.map(
-      (year) =>
-        yearMonthCount[`${year}-${month.toString().padStart(2, '0')}`] || 0
+  // Calculate percentages
+  const percentages = monthCounts.map((counts, artistIndex) => {
+    const totalReleases = counts.reduce((sum, count) => sum + count, 0)
+    return counts.map((count) =>
+      totalReleases > 0 ? (count / totalReleases) * 100 : 0
     )
+  })
+
+  const z = percentages
+  const x = monthNames
+  const y = artistNames.map((artist) => capitalize(artist.replace('_', ' ')))
+
+  const hoverText = monthCounts.map((row, artistIndex) =>
+    row.map((count, monthIndex) => {
+      const avgPopularity =
+        count > 0
+          ? (monthPopularity[artistIndex][monthIndex] / count).toFixed(2)
+          : 0
+      const percentage = z[artistIndex][monthIndex].toFixed(2)
+      return `Artist: ${capitalize(artistNames[artistIndex].replace('_', ' '))}<br>Month: ${monthNames[monthIndex]}<br>Releases: ${count}<br>Avg Popularity: ${avgPopularity}<br>Percentage: ${percentage}%`
+    })
   )
 
-  const hoverText = months.map((month) =>
-    years.map(
-      (year) =>
-        `Year: ${year}<br>Month: ${month}<br>Releases: ${yearMonthCount[`${year}-${month.toString().padStart(2, '0')}`] || 0}`
-    )
-  )
-
-  return { z, x: years, y: months, hoverText }
+  return { z, x, y, hoverText }
 }
 
-const Heatmap: React.FC<HeatmapProps> = ({ artist, data }) => {
-  const heatmapData = createHeatmapData(data[artist])
+const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
+  const heatmapData = createHeatmapData(data)
 
   return (
     <div>
@@ -61,35 +76,34 @@ const Heatmap: React.FC<HeatmapProps> = ({ artist, data }) => {
             x: heatmapData.x,
             y: heatmapData.y,
             type: 'heatmap',
-            colorscale: 'Hot',
-            // @ts-ignore
+            colorscale: 'YlGnBu',
             text: heatmapData.hoverText,
+            hoverinfo: 'text', // Add this line to ensure hover text is used
             hovertemplate: '%{text}<extra></extra>'
           }
         ]}
         layout={{
-          title: `Song Releases for ${capitalize(artist.replace('_', ' '))}`,
+          title: {
+            text: 'Percentage of Song Releases by Month and Artist',
+            x: 0.5,
+            xanchor: 'center'
+          },
           xaxis: {
-            title: 'Year'
+            title: 'Month'
           },
           yaxis: {
-            title: 'Month',
-            tickmode: 'array',
-            tickvals: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            ticktext: [
-              'Jan',
-              'Feb',
-              'Mar',
-              'Apr',
-              'May',
-              'Jun',
-              'Jul',
-              'Aug',
-              'Sep',
-              'Oct',
-              'Nov',
-              'Dec'
-            ]
+            title: {
+              text: 'Artist',
+              standoff: 20 // Increase this value to create more space
+            }
+          },
+          plot_bgcolor: 'rgba(0, 0, 0, 0)',
+          paper_bgcolor: 'rgba(0, 0, 0, 0)',
+          margin: {
+            l: 150, // Increase the left margin to accommodate artist names
+            r: 20,
+            t: 60,
+            b: 40
           }
         }}
       />
