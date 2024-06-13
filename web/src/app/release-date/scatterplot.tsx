@@ -58,6 +58,7 @@ const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
   return (
     <div>
       <Plot
+        // @ts-ignore
         data={scatterData}
         layout={{
           title: 'Popularity vs. Release Month for All Artists',
