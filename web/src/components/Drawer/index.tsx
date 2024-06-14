@@ -1,6 +1,6 @@
 'use client'
 
-import { CalendarMonth, AccessTime, LibraryMusic, MusicNote } from '@mui/icons-material'
+import { CalendarMonth, AccessTime, LibraryMusic, MusicNote, Album } from '@mui/icons-material'
 import styles from './styles.module.css'
 import { useDrawer } from '@/hooks/use-drawer'
 import Link from 'next/link'
@@ -41,6 +41,14 @@ export const Drawer = () => {
               <LibraryMusic/>
               Metrics By Album Size
             </button>
+          </Link>
+        </li>
+        <li>
+          <Link href="/album-gap">
+            <button className={styles.button}>
+              <Album />
+              Album
+              </button>
           </Link>
         </li>
       </ul>
