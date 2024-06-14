@@ -3,6 +3,7 @@
 import React from 'react'
 import Plot from 'react-plotly.js'
 import { ArtistsData, Song } from '@/types'
+import { capitalize } from '@/utils/capitalize'
   
 interface PlotProps {
     data: ArtistsData;

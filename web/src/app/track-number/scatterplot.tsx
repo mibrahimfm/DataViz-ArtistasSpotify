@@ -3,6 +3,7 @@
 import React from 'react'
 import Plot from 'react-plotly.js'
 import { ArtistsData, Song } from '@/types'
+import { capitalize } from '@/utils/capitalize'
 
 interface ScatterPlotProps {
   data: ArtistsData
@@ -16,7 +17,7 @@ const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
         y: data[artist].map(song => song.popularity),
         mode: 'markers',
         type: 'scatter',
-        name: artist
+        name: capitalize(artist.replace('_', ' '))
       };
     });
   
@@ -24,9 +25,9 @@ const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
       <Plot
         data={plotData}
         layout={{
-          title: 'Track Popularity vs. Track Number, Grouped by Artist',
-          xaxis: { title: 'Track Number' },
-          yaxis: { title: 'Popularity' },
+          title: 'Popularidade vs. Número da Faixa, Agrupado por Artista',
+          xaxis: { title: 'Número da Faixa' },
+          yaxis: { title: 'Popularidade' },
         }}
       />
     );

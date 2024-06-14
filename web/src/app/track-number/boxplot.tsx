@@ -3,6 +3,7 @@
 import React from 'react'
 import Plot from 'react-plotly.js'
 import { ArtistsData, Song } from '@/types'
+import { capitalize } from '@/utils/capitalize'
 
 interface BoxPlotProps {
   data: ArtistsData
@@ -14,7 +15,7 @@ const BoxPlot: React.FC<BoxPlotProps> = ({ data }) => {
       return {
         y: data[artist].map(song => song.popularity),
         type: 'box',
-        name: artist
+        name: capitalize(artist.replace('_', ' ')),
       };
     });
   
