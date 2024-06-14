@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
-import Plot from 'react-plotly.js'
+import Plot from '@/components/Plot'
 import { ArtistsData, Song } from '@/types'
 import { capitalize } from '@/utils/capitalize'
+import { Data } from 'plotly.js'
 
 interface PlotProps {
   data: ArtistsData;
@@ -42,7 +43,7 @@ const AveragePopularityLinePlot: React.FC<PlotProps> = ({ data }) => {
 
   const avgPopularityData = calculateAveragePopularity(data);
 
-  const plotData = Object.keys(data).map(artist => {
+  const plotData: Data[] = Object.keys(data).map(artist => {
     const artistData = avgPopularityData.filter(d => d.artist === capitalize(artist.replace('_', ' ')));
     return {
       x: artistData.map(d => d.year),

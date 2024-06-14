@@ -1,5 +1,3 @@
-'use server'
-
 import styles from './page.module.css'
 import { getArtistsSongs } from '@/utils/artists-data'
 import LineChart from './lineChart'

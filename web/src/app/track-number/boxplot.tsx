@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
-import Plot from 'react-plotly.js'
+import Plot from '@/components/Plot'
 import { ArtistsData, Song } from '@/types'
 import { capitalize } from '@/utils/capitalize'
+import { Data } from 'plotly.js'
 
 interface BoxPlotProps {
   data: ArtistsData
@@ -11,7 +12,7 @@ interface BoxPlotProps {
 
 const BoxPlot: React.FC<BoxPlotProps> = ({ data }) => {
     const artistNames = Object.keys(data);
-    const plotData = artistNames.map(artist => {
+    const plotData:Data[] = artistNames.map(artist => {
       return {
         y: data[artist].map(song => song.popularity),
         type: 'box',

@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react'
-import Plot from 'react-plotly.js'
+import Plot from '@/components/Plot'
 import { ArtistsData, Song } from '@/types'
+import { Data } from 'plotly.js'
 
 interface PlotProps {
   data: ArtistsData
@@ -44,7 +45,7 @@ const PlotComponent: React.FC<PlotProps> = ({ data }) => {
   const processedData = processData(data)
 
   // Plot data
-  const lineChartData = {
+  const lineChartData:Data = {
     x: processedData.map(d => d.year),
     y: processedData.map(d => d.maxPopularity),
     type: 'scatter',
@@ -53,7 +54,7 @@ const PlotComponent: React.FC<PlotProps> = ({ data }) => {
     marker: { color: 'blue' }
   }
 
-  const barChartData = {
+  const barChartData:Data = {
     x: processedData.map(d => d.year),
     y: processedData.map(d => d.releases),
     type: 'bar',

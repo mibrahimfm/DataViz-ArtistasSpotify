@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import Plot from 'react-plotly.js'
+import Plot from '@/components/Plot'
 import { ArtistsData } from '@/types'
 import { capitalize } from '@/utils/capitalize'
 import styles from './page.module.css'

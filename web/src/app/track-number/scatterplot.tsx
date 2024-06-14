@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
-import Plot from 'react-plotly.js'
+import Plot from '@/components/Plot'
 import { ArtistsData, Song } from '@/types'
 import { capitalize } from '@/utils/capitalize'
+import { Data } from 'plotly.js'
 
 interface ScatterPlotProps {
   data: ArtistsData
@@ -11,7 +12,7 @@ interface ScatterPlotProps {
 
 const ScatterPlot: React.FC<ScatterPlotProps> = ({ data }) => {
     const artistNames = Object.keys(data);
-    const plotData = artistNames.map(artist => {
+    const plotData:Data[] = artistNames.map(artist => {
       return {
         x: data[artist].map(song => song.track_number),
         y: data[artist].map(song => song.popularity),

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Plot from 'react-plotly.js';
+import Plot from '@/components/Plot';
 import { Song, ArtistsData } from '@/types'; // Adjust the path to your types as necessary
 
 interface CorrelationHeatmapProps {

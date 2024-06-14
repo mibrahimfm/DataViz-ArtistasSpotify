@@ -1,5 +1,3 @@
-'use server'
-
 import { getArtistsSongs } from '@/utils/artists-data'
 import ScatterPlot from './scatterplot'
 import BoxPlot from './boxplot'

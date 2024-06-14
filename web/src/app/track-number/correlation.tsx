@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
-import Plot from 'react-plotly.js'
+import Plot from '@/components/Plot'
 import { ArtistsData, Song } from '@/types'
 import { capitalize } from '@/utils/capitalize'
+import { Data } from 'plotly.js'
   
 interface PlotProps {
     data: ArtistsData;
@@ -31,7 +32,7 @@ const correlations = Object.keys(data).map(artist => {
     };
 });
   
-const plotData = {
+const plotData:Data = {
     x: correlations.map(item => item.artist),
     y: correlations.map(item => item.correlation),
     type: 'bar'
