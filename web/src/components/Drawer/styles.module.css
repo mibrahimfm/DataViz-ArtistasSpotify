@@ -1,7 +1,7 @@
 .nav {
   --icon-size: 24px;
 
-  height: 100%;
+  height: calc(100vh - var(--header-height));
   width: var(--drawer-collapsed-width);
 
   transition: width var(--transition-default);
