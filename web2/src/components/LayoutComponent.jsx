@@ -23,16 +23,17 @@ To read more about using these font, please visit the Next.js documentation:
 - App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
-import Drawer from './Drawer';
-import NavButton from './NavButton';
+import Drawer from "./Drawer";
+import NavButton from "./NavButton";
 
 const links = [
-  { t: 'Release Date', h: '/release-date' },
-  { t: 'Track Number', h: '/track-number' },
-  { t: 'Metrics Over Time', h: '/metrics-over-time' },
-  { t: 'Metrics By Album Size', h: '/metrics-by-album-size' },
-  { t: 'Album', h: '/album-gap' },
-  { t: 'Popularidade', h: '/duration-popularity' },
+  { t: "Release Date", h: "/release-date" },
+  { t: "Track Number", h: "/track-number" },
+  { t: "Metrics Over Time", h: "/metrics-over-time" },
+  { t: "Metrics By Album Size", h: "/metrics-by-album-size" },
+  { t: "Album", h: "/album-gap" },
+  { t: "Popularidade", h: "/duration-popularity" },
+  { t: "Correlations", h: "/correlations" },
 ];
 
 export function LayoutComponent({ children }) {

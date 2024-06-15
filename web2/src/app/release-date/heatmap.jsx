@@ -7,17 +7,17 @@ import { capitalize } from "@/utils/capitalize";
 const createHeatmapData = (data) => {
   const monthNames = [
     "Jan",
-    "Feb",
+    "Fev",
     "Mar",
-    "Apr",
-    "May",
+    "Abr",
+    "Mai",
     "Jun",
     "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
+    "Ago",
+    "Set",
+    "Out",
     "Nov",
-    "Dec",
+    "Dez",
   ];
   const artistNames = Object.keys(data);
   const monthCounts = artistNames.map(() => new Array(12).fill(0));
@@ -88,11 +88,11 @@ const Heatmap = ({ data }) => {
             xanchor: "center",
           },
           xaxis: {
-            title: "Month",
+            title: "Mês",
           },
           yaxis: {
             title: {
-              text: "Artist",
+              text: "Artista",
               standoff: 20, // Increase this value to create more space
             },
           },

@@ -7,17 +7,17 @@ import { capitalize } from "@/utils/capitalize";
 const ScatterPlot = ({ data }) => {
   const monthNames = [
     "Jan",
-    "Feb",
+    "Fev",
     "Mar",
-    "Apr",
-    "May",
+    "Abr",
+    "Mai",
     "Jun",
     "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
+    "Ago",
+    "Set",
+    "Out",
     "Nov",
-    "Dec",
+    "Dez",
   ];
   const artistNames = Object.keys(data);
 
@@ -62,10 +62,10 @@ const ScatterPlot = ({ data }) => {
           title:
             "Correlação entre popularidade e mês de lançamento das músicas por artista",
           xaxis: {
-            title: "Month",
+            title: "Mês",
           },
           yaxis: {
-            title: "Average Popularity",
+            title: "Popularidade Média",
           },
           plot_bgcolor: "rgba(0, 0, 0, 0)",
           paper_bgcolor: "rgba(0, 0, 0, 0)",

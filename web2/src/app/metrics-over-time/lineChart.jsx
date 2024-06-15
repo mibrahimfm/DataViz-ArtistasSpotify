@@ -57,8 +57,8 @@ const LineChart = ({ data }) => {
   ];
 
   return (
-    <div>
-      <label htmlFor="metric-select">Select Metric</label>
+    <div className="text-center">
+      <label htmlFor="metric-select">Selecione a métrica</label>
       <select
         id="metric-select"
         value={metric}
@@ -72,25 +72,27 @@ const LineChart = ({ data }) => {
         ))}
       </select>
 
-      <Plot
-        data={chartData}
-        layout={{
-          title: `${capitalize(metric)} vs. Release Year for All Artists`,
-          xaxis: {
-            title: "Year",
-            tickmode: "linear",
-            tick0: Math.min(...chartData.flatMap((artist) => artist.x)),
-            dtick: 3,
-            tickangle: -45,
-            automargin: true,
-          },
-          yaxis: {
-            title: `Average ${capitalize(metric)}`,
-          },
-          plot_bgcolor: "rgba(0, 0, 0, 0)",
-          paper_bgcolor: "rgba(0, 0, 0, 0)",
-        }}
-      />
+      <div>
+        <Plot
+          data={chartData}
+          layout={{
+            title: `${capitalize(metric)} vs. Ano de lançamento por Artista`,
+            xaxis: {
+              title: "Ano",
+              tickmode: "linear",
+              tick0: Math.min(...chartData.flatMap((artist) => artist.x)),
+              dtick: 3,
+              tickangle: -45,
+              automargin: true,
+            },
+            yaxis: {
+              title: `${capitalize(metric)} (média)`,
+            },
+            plot_bgcolor: "rgba(0, 0, 0, 0)",
+            paper_bgcolor: "rgba(0, 0, 0, 0)",
+          }}
+        />
+      </div>
     </div>
   );
 };

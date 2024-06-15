@@ -1,10 +1,10 @@
 // components/Heatmap.tsx
 'use client'
 
-import React from 'react'
 import Plot from '@/components/Plot'
 import { ArtistsData } from '@/types'
 import { capitalize } from '@/utils/capitalize'
+import React from 'react'
 
 interface HeatmapProps {
   data: ArtistsData
@@ -13,17 +13,17 @@ interface HeatmapProps {
 const createHeatmapData = (data: ArtistsData) => {
   const monthNames = [
     'Jan',
-    'Feb',
+    'Fev',
     'Mar',
-    'Apr',
-    'May',
+    'Abr',
+    'Mai',
     'Jun',
     'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
+    'Ago',
+    'Set',
+    'Out',
     'Nov',
-    'Dec'
+    'Dez'
   ]
   const artistNames = Object.keys(data) as Array<keyof ArtistsData>
   const monthCounts = artistNames.map(() => new Array(12).fill(0))

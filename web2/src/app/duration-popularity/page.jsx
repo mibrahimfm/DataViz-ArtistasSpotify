@@ -1,7 +1,6 @@
-import { getArtistsSongs } from '@/utils/artists-data';
-import PopularityChart from './PopularityChart';
-import styles from './page.module.css';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getArtistsSongs } from "@/utils/artists-data";
+import PopularityChart from "./PopularityChart";
 
 export default async function MetricsOverTimePage() {
   const songs = await getArtistsSongs();

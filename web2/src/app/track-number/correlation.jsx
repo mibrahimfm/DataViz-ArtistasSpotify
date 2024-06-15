@@ -1,6 +1,7 @@
 "use client";
 
 import Plot from "@/components/Plot";
+import { capitalize } from "@/utils/capitalize";
 
 const CorrelationBarPlot = ({ data }) => {
   const calculateCorrelation = (songs) => {
@@ -32,7 +33,7 @@ const CorrelationBarPlot = ({ data }) => {
   });
 
   const plotData = {
-    x: correlations.map((item) => item.artist),
+    x: correlations.map((item) => capitalize(item.artist, true)),
     y: correlations.map((item) => item.correlation),
     type: "bar",
   };
@@ -49,7 +50,7 @@ const CorrelationBarPlot = ({ data }) => {
           },
           tickangle: -45,
           tickmode: "array",
-          tickvals: correlations.map((item) => item.artist),
+          tickvals: correlations.map((item) => capitalize(item.artist, true)),
         },
         yaxis: { title: "Correlação", range: [-1, 1] },
         margin: { b: 100 }, // Increase the bottom margin to make room for the tilted labels

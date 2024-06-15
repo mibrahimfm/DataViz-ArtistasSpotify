@@ -11,17 +11,17 @@ type MonthAnalysis = {
 const analyzeReleasesByMonth = (songs: Song[]): MonthAnalysis[] => {
   const monthNames = [
     'Jan',
-    'Feb',
+    'Fev',
     'Mar',
-    'Apr',
-    'May',
+    'Abr',
+    'Mai',
     'Jun',
     'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
+    'Ago',
+    'Set',
+    'Out',
     'Nov',
-    'Dec'
+    'Dez'
   ]
   const monthData: { [key: number]: { popularitySum: number; count: number } } =
     {}
