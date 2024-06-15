@@ -102,7 +102,7 @@ const Heatmap = ({ data }) => {
           plot_bgcolor: "rgba(0, 0, 0, 0)",
           paper_bgcolor: "rgba(0, 0, 0, 0)",
           margin: {
-            l: 150, // Increase the left margin to accommodate artist names
+            l: 120, // Increase the left margin to accommodate artist names
             r: 20,
             t: 60,
             b: 40,

@@ -27,13 +27,13 @@ import Drawer from "./Drawer";
 import NavButton from "./NavButton";
 
 const links = [
-  { t: "Release Date", h: "/release-date" },
-  { t: "Track Number", h: "/track-number" },
-  { t: "Metrics Over Time", h: "/metrics-over-time" },
-  { t: "Metrics By Album Size", h: "/metrics-by-album-size" },
-  { t: "Album", h: "/album-gap" },
-  { t: "Popularidade", h: "/duration-popularity" },
-  { t: "Correlations", h: "/correlations" },
+  { t: "Data de Lançamento", h: "/release-date" },
+  { t: "Número da Faixa", h: "/track-number" },
+  { t: "Métricas ao Longo do Tempo", h: "/metrics-over-time" },
+  { t: "Métricas por Tamanho do Álbum", h: "/metrics-by-album-size" },
+  { t: "Lançamento dos Álbuns", h: "/album-gap" },
+  { t: "Popularidade por Duração", h: "/duration-popularity" },
+  { t: "Correlação entre Métricas", h: "/correlations" },
 ];
 
 export function LayoutComponent({ children }) {

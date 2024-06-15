@@ -8,7 +8,7 @@ export default async function MetricsOverTimePage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Popularidade por duração</CardTitle>
+        <CardTitle>Popularidade por Duração da Música</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-wrap justify-center">
         <PopularityChart data={songs} />
