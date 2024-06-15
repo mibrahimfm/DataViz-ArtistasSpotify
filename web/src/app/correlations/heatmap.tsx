@@ -13,10 +13,10 @@ type CorrelationData = {
   correlation: number;
 };
 
-const quantitativeColumns: (keyof Song)[] = ['track_number', 'acousticness', 'danceability', 'energy', 'instrumentalness',
-  'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'popularity', 'duration_ms'];
+const getCorrelationMatrixByAlbum = (songs: Song[]): CorrelationData[] => {
+  const quantitativeColumns: (keyof Song)[] = ['track_number', 'acousticness', 'danceability', 'energy', 'instrumentalness',
+    'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'duration_ms'];
 
-const getCorrelationMatrixByAlbum = (songs: Song[], selectedFeature: keyof Song): CorrelationData[] => {
   // Initialize correlation matrix
   const correlationMatrix: CorrelationData[] = [];
 
@@ -25,10 +25,10 @@ const getCorrelationMatrixByAlbum = (songs: Song[], selectedFeature: keyof Song)
   albumsSet.forEach(album => {
     // Filter songs for the current album
     const albumSongs = songs.filter(song => song.album === album);
-    // Calculate correlations for each feature in relation to the selected feature
+    // Calculate correlations for each feature in relation to 'popularity'
     quantitativeColumns.forEach(feature => {
-      if (feature !== selectedFeature) {
-        const correlation = calculateCorrelation(albumSongs, feature, selectedFeature);
+      if (feature !== 'popularity') {
+        const correlation = calculateCorrelation(albumSongs, feature, 'popularity');
         correlationMatrix.push({ album: album, feature: feature, correlation: correlation });
       }
     });
@@ -52,60 +52,46 @@ const calculateCorrelation = (songs: Song[], col1: keyof Song, col2: keyof Song)
 
 const CorrelationHeatmap: React.FC<CorrelationHeatmapProps> = ({ data, selectedArtist }) => {
   const [correlationMatrix, setCorrelationMatrix] = useState<CorrelationData[]>([]);
-  const [selectedFeature, setSelectedFeature] = useState<keyof Song>('popularity');
 
   useEffect(() => {
     if (selectedArtist && data[selectedArtist]) {
       const songs = data[selectedArtist];
-      const correlationData = getCorrelationMatrixByAlbum(songs, selectedFeature);
+      const correlationData = getCorrelationMatrixByAlbum(songs);
       setCorrelationMatrix(correlationData);
     }
-  }, [data, selectedArtist, selectedFeature]);
+  }, [data, selectedArtist]);
 
   const albums = Array.from(new Set(correlationMatrix.map(data => data.album)));
-  const features = quantitativeColumns.filter(feature => feature !== selectedFeature);
-  
-  const handleFeatureChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedFeature(event.target.value as keyof Song);
-  };
+  const features = Array.from(new Set(correlationMatrix.map(data => data.feature)));
 
   return (
-    <div>
-      <label htmlFor="feature-select">Choose a feature to analyze: </label>
-      <select id="feature-select" value={selectedFeature} onChange={handleFeatureChange}>
-        {quantitativeColumns.map(feature => (
-          <option key={feature} value={feature}>
-            {feature}
-          </option>
-        ))}
-      </select>
-
-      <Plot
-        data={[{
+    <Plot
+      data={[
+        {
           x: albums,
           y: features,
           z: features.map(feature => {
-          return albums.map(album => {
-            const correlationData = correlationMatrix.find(data => data.album === album && data.feature === feature);
-            return correlationData ? correlationData.correlation : 0;
-          });
+            return albums.map(album => {
+              const correlationData = correlationMatrix.find(data => data.album === album && data.feature === feature);
+              return correlationData ? correlationData.correlation : 0;
+            });
           }),
           type: 'heatmap',
           colorscale: 'coolwarm',
           zmin: -1,
           zmax: 1
-        }]}
-        layout={{
-          title: `Correlation Heatmap for ${selectedArtist}`,
-          xaxis: {
-            title: 'Albums'
-          },
-          yaxis: {
-            title: `Correlation with ${selectedFeature}`
-          }
-        }}
-      />
-    </div>
+        }
+      ]}
+      layout={{
+        title: `Correlation Heatmap for ${selectedArtist}`,
+        xaxis: {
+          title: 'Albums'
+        },
+        yaxis: {
+          title: 'Features'
+        }
+      }}
+    />
   );
 };
 
