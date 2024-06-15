@@ -42,7 +42,7 @@ export default function Home() {
           </p>
 
           <p>
-            A escolha de um dataset baseado em artistas, bandas e suas músicas
+            A escolha de uma base de dados baseado em artistas, bandas e suas músicas
             do Spotify se deve à intersecção entre música e tecnologia. A música
             é um fenômeno cultural complexo e universal, presente na vida humana
             há milênios, enquanto o Spotify, a maior plataforma de streaming,

@@ -4,7 +4,7 @@ export default async function MetricsOverTimePage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Dataset</CardTitle>
+        <CardTitle>Base de Dados</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-wrap">
         <p>
@@ -12,7 +12,7 @@ export default async function MetricsOverTimePage() {
           dados da API do Spotify em todos os álbuns listados na plataforma de
           alguns dos destaques da música (sendo eles Taylor Swift, Ed Sheeran,
           Rolling Stones, the Beatles, Tame Impala, Elton John e Metallica). Os
-          dados estão subdivididos em 7 datasets de mesmo formato
+          dados estão subdivididos em 7 bases de dados de mesmo formato
           (possibilitando a comparação entre as bases) disponíveis na plataforma
           Kaggle. Segue abaixo o link para acesso às bases:
         </p>
@@ -137,9 +137,9 @@ export default async function MetricsOverTimePage() {
             </li>
             <li>
               <strong>instrumentalness</strong> - Prevê se uma faixa não contém
-              vocais. Os sons "Ooh" e "aah" são tratados como instrumentais
+              vocais. Os sons &quot;Ooh&quot; e &quot;aah&quot; são tratados como instrumentais
               neste contexto. Faixas de rap ou palavras faladas são claramente
-              "vocais". Quanto mais próximo o valor da instrumentalidade estiver
+              &quot;vocais&quot;. Quanto mais próximo o valor da instrumentalidade estiver
               de 1,0, maior será a probabilidade de a faixa não conter conteúdo
               vocal. Valores acima de 0,5 pretendem representar faixas
               instrumentais, mas a confiança é maior à medida que o valor se

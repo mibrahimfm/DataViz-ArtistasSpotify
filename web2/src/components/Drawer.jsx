@@ -14,25 +14,25 @@ export default function Drawer({ links }) {
         isExpanded ? "block" : "hidden"
       }`}
     >
-      <ul className="space-y-1">
-        <li style={{ fontWeight: pathname === "/" ? "700" : "500" }}>
+      <ul >
+        <li style={{ fontWeight: pathname === "/" ? "700" : "500" }} className="mb-2">
           <Link
             className="block text-lg text-gray-700 dark:text-gray-300 hover:text-[#0D9D55] transition-colors"
             href="/"
           >
-            <h2>Home</h2>
+            <h2>Página Inicial</h2>
           </Link>
         </li>
-        <li style={{ fontWeight: pathname === "/dataset" ? "700" : "500" }}>
+        <li style={{ fontWeight: pathname === "/dataset" ? "700" : "500" }} className="mb-2">
           <Link
             className="block text-lg text-gray-700 dark:text-gray-300 hover:text-[#0D9D55] transition-colors"
             href="/dataset"
           >
-            <h2>Dataset</h2>
+            <h2>Base de Dados</h2>
           </Link>
         </li>
       </ul>
-      <div className="flex items-center justify-between mb-0 mt-2">
+      <div className="flex items-center justify-between mb-1">
         <h2
           className={`text-lg text-gray-700 ${
             pathname !== "/" && pathname !== "/dataset" ? "!text-[#0D9D55] font-bold" : ""
