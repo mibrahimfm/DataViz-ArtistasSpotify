@@ -18,7 +18,7 @@ function getSelected(select) {
   return result
 }
 
-function mediana(arr) {
+function _mediana(arr) {
   if (arr.length === 0) return 0
 
   const copia = arr.slice()
@@ -34,6 +34,12 @@ function mediana(arr) {
   }
 }
 
+function media(arr) {
+  if (arr.length === 0) return 0
+
+  return arr.reduce((acc, v) => acc + v, 0) / arr.length
+}
+
 function toMinute(ms) {
   const mi = Math.floor(ms / 60000)
   const se = String((ms - mi * 60000) / 1000).padStart(2, '0')
@@ -43,7 +49,10 @@ function toMinute(ms) {
 export default function PopularityChart({ data }) {
   const artistas = Object.keys(data)
   const [selectedArtists, setSelectedArtists] = useState(artistas)
+  const [useAverage, setUseAverage] = useState(true)
   const [multiple, setMultiple] = useState(false)
+
+  const mediana = useAverage ? media : _mediana
 
   let dataSets = selectedArtists.map((a) => data[a])
   if (!multiple) dataSets = [[].concat(...dataSets)]
@@ -133,6 +142,32 @@ export default function PopularityChart({ data }) {
           ))}
         </select>
       </div>
+
+      <div>
+        <span className="mr-3">Métrica:</span>
+        <label className="mr-3">
+          <input
+            className="mr-1"
+            type="radio"
+            value="media"
+            checked={useAverage}
+            onChange={(e) => setUseAverage(e.target.value === 'media')}
+          />
+          Média
+        </label>
+
+        <label>
+          <input
+            className="mr-1"
+            type="radio"
+            value="mediana"
+            checked={!useAverage}
+            onChange={(e) => setUseAverage(e.target.value === 'media')}
+          />
+          Mediana
+        </label>
+      </div>
+
       <label>
         <input
           type="checkbox"
@@ -162,7 +197,7 @@ export default function PopularityChart({ data }) {
                   showgrid: false
                 },
                 yaxis2: {
-                  title: 'Mediana da popularidade (%)',
+                  title: (useAverage ? 'Média' : 'Mediana') + ' da popularidade',
                   side: 'right',
                   overlaying: 'y'
                 },
