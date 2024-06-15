@@ -64,23 +64,7 @@ const CorrelationHeatmap: React.FC<CorrelationHeatmapProps> = ({ data, selectedA
 
   const albums = Array.from(new Set(correlationMatrix.map(data => data.album)));
   const features = quantitativeColumns.filter(feature => feature !== selectedFeature);
-
-  // Prepare data for Plotly heatmap
-  const heatmapData = {
-    x: albums,
-    y: features,
-    z: features.map(feature => {
-      return albums.map(album => {
-        const correlationData = correlationMatrix.find(data => data.album === album && data.feature === feature);
-        return correlationData ? correlationData.correlation : 0;
-      });
-    }),
-    type: 'heatmap',
-    colorscale: 'coolwarm',
-    zmin: -1,
-    zmax: 1
-  };
-
+  
   const handleFeatureChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFeature(event.target.value as keyof Song);
   };
@@ -97,7 +81,20 @@ const CorrelationHeatmap: React.FC<CorrelationHeatmapProps> = ({ data, selectedA
       </select>
 
       <Plot
-        data={[heatmapData]}
+        data={[{
+          x: albums,
+          y: features,
+          z: features.map(feature => {
+          return albums.map(album => {
+            const correlationData = correlationMatrix.find(data => data.album === album && data.feature === feature);
+            return correlationData ? correlationData.correlation : 0;
+          });
+          }),
+          type: 'heatmap',
+          colorscale: 'coolwarm',
+          zmin: -1,
+          zmax: 1
+        }]}
         layout={{
           title: `Correlation Heatmap for ${selectedArtist}`,
           xaxis: {
