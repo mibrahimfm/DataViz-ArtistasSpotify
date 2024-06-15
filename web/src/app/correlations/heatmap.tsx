@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Plot from '@/components/Plot';
+import Plot from 'react-plotly.js';
 import { Song, ArtistsData } from '@/types'; // Adjust the path to your types as necessary
 
 interface CorrelationHeatmapProps {
@@ -13,10 +13,10 @@ type CorrelationData = {
   correlation: number;
 };
 
-const getCorrelationMatrixByAlbum = (songs: Song[]): CorrelationData[] => {
-  const quantitativeColumns: (keyof Song)[] = ['track_number', 'acousticness', 'danceability', 'energy', 'instrumentalness',
-    'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'duration_ms'];
+const quantitativeColumns: (keyof Song)[] = ['track_number', 'acousticness', 'danceability', 'energy', 'instrumentalness',
+  'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'popularity', 'duration_ms'];
 
+const getCorrelationMatrixByAlbum = (songs: Song[], selectedFeature: keyof Song): CorrelationData[] => {
   // Initialize correlation matrix
   const correlationMatrix: CorrelationData[] = [];
 
@@ -25,10 +25,10 @@ const getCorrelationMatrixByAlbum = (songs: Song[]): CorrelationData[] => {
   albumsSet.forEach(album => {
     // Filter songs for the current album
     const albumSongs = songs.filter(song => song.album === album);
-    // Calculate correlations for each feature in relation to 'popularity'
+    // Calculate correlations for each feature in relation to the selected feature
     quantitativeColumns.forEach(feature => {
-      if (feature !== 'popularity') {
-        const correlation = calculateCorrelation(albumSongs, feature, 'popularity');
+      if (feature !== selectedFeature) {
+        const correlation = calculateCorrelation(albumSongs, feature, selectedFeature);
         correlationMatrix.push({ album: album, feature: feature, correlation: correlation });
       }
     });
@@ -39,7 +39,7 @@ const getCorrelationMatrixByAlbum = (songs: Song[]): CorrelationData[] => {
 
 const calculateCorrelation = (songs: Song[], col1: keyof Song, col2: keyof Song): number => {
   const values1 = songs.map(song => song[col1] as number);
-  const values2 = songs.map(song => song[col2] as number);
+  const values2 = songs.map(song => song[col2]);
 
   const mean1 = values1.reduce((a, b) => a + b) / values1.length;
   const mean2 = values2.reduce((a, b) => a + b) / values2.length;
@@ -52,46 +52,63 @@ const calculateCorrelation = (songs: Song[], col1: keyof Song, col2: keyof Song)
 
 const CorrelationHeatmap: React.FC<CorrelationHeatmapProps> = ({ data, selectedArtist }) => {
   const [correlationMatrix, setCorrelationMatrix] = useState<CorrelationData[]>([]);
+  const [selectedFeature, setSelectedFeature] = useState<keyof Song>('popularity');
 
   useEffect(() => {
     if (selectedArtist && data[selectedArtist]) {
       const songs = data[selectedArtist];
-      const correlationData = getCorrelationMatrixByAlbum(songs);
+      const correlationData = getCorrelationMatrixByAlbum(songs, selectedFeature);
       setCorrelationMatrix(correlationData);
     }
-  }, [data, selectedArtist]);
+  }, [data, selectedArtist, selectedFeature]);
 
   const albums = Array.from(new Set(correlationMatrix.map(data => data.album)));
-  const features = Array.from(new Set(correlationMatrix.map(data => data.feature)));
+  const features = quantitativeColumns.filter(feature => feature !== selectedFeature);
+
+  // Prepare data for Plotly heatmap
+  const heatmapData = {
+    x: albums,
+    y: features,
+    z: features.map(feature => {
+      return albums.map(album => {
+        const correlationData = correlationMatrix.find(data => data.album === album && data.feature === feature);
+        return correlationData ? correlationData.correlation : 0;
+      });
+    }),
+    type: 'heatmap',
+    colorscale: 'coolwarm',
+    zmin: -1,
+    zmax: 1
+  };
+
+  const handleFeatureChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedFeature(event.target.value as keyof Song);
+  };
 
   return (
-    <Plot
-      data={[
-        {
-          x: albums,
-          y: features,
-          z: features.map(feature => {
-            return albums.map(album => {
-              const correlationData = correlationMatrix.find(data => data.album === album && data.feature === feature);
-              return correlationData ? correlationData.correlation : 0;
-            });
-          }),
-          type: 'heatmap',
-          colorscale: 'coolwarm',
-          zmin: -1,
-          zmax: 1
-        }
-      ]}
-      layout={{
-        title: `Correlation Heatmap for ${selectedArtist}`,
-        xaxis: {
-          title: 'Albums'
-        },
-        yaxis: {
-          title: 'Features'
-        }
-      }}
-    />
+    <div>
+      <label htmlFor="feature-select">Choose a feature to analyze: </label>
+      <select id="feature-select" value={selectedFeature} onChange={handleFeatureChange}>
+        {quantitativeColumns.map(feature => (
+          <option key={feature} value={feature}>
+            {feature}
+          </option>
+        ))}
+      </select>
+
+      <Plot
+        data={[heatmapData]}
+        layout={{
+          title: `Correlation Heatmap for ${selectedArtist}`,
+          xaxis: {
+            title: 'Albums'
+          },
+          yaxis: {
+            title: `Correlation with ${selectedFeature}`
+          }
+        }}
+      />
+    </div>
   );
 };
 
