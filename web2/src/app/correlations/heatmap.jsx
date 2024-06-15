@@ -1,5 +1,9 @@
 import Plot from "@/components/Plot";
+import { capitalize } from "@/utils/capitalize";
 import { useEffect, useState } from "react";
+
+const parseAlbumName = (album) =>
+  album.length > 15 ? album.slice(0, 15) + "..." : album;
 
 const getCorrelationMatrixByAlbum = (songs) => {
   const quantitativeColumns = [
@@ -85,7 +89,7 @@ const CorrelationHeatmap = ({ data, selectedArtist }) => {
     <Plot
       data={[
         {
-          x: albums,
+          x: albums.map(parseAlbumName),
           y: features,
           z: features.map((feature) => {
             return albums.map((album) => {
@@ -99,20 +103,25 @@ const CorrelationHeatmap = ({ data, selectedArtist }) => {
           colorscale: "coolwarm",
           zmin: -1,
           zmax: 1,
+          colorbar: {
+            title: "Correlação com Popularidade",
+            titleside: "right",
+          },
         },
       ]}
       layout={{
-        title: `Correlation Heatmap for ${selectedArtist}`,
+        title: `Heatmap de correlação: ${capitalize(selectedArtist, true)}`,
+        height: 450,
         xaxis: {
           title: {
-            text: "Albums",
+            text: "Álbuns",
             standoff: 20,
           },
           tickangle: -45, // Tilt the labels for better readability
         },
         yaxis: {
           title: {
-            text: "Features",
+            text: "Métricas",
             standoff: 20,
           },
           automargin: true,
@@ -123,7 +132,7 @@ const CorrelationHeatmap = ({ data, selectedArtist }) => {
           l: 100, // Adjust the left margin to accommodate y-axis labels
           r: 20,
           t: 60, // Adjust the top margin for the title
-          b: 100, // Adjust the bottom margin to accommodate x-axis labels
+          b: 120, // Adjust the bottom margin to accommodate x-axis labels
         },
       }}
     />

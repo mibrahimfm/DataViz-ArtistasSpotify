@@ -75,10 +75,13 @@ const Heatmap = ({ data }) => {
             y: heatmapData.y,
             type: "heatmap",
             colorscale: "YlGnBu",
-            // @ts-ignore
             text: heatmapData.hoverText,
             hoverinfo: "text", // Add this line to ensure hover text is used
             hovertemplate: "%{text}<extra></extra>",
+            colorbar: {
+              title: "Popularidade Média (%)",
+              titleside: "right",
+            },
           },
         ]}
         layout={{
