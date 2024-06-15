@@ -39,7 +39,7 @@ const getCorrelationMatrixByAlbum = (songs: Song[], selectedFeature: keyof Song)
 
 const calculateCorrelation = (songs: Song[], col1: keyof Song, col2: keyof Song): number => {
   const values1 = songs.map(song => song[col1] as number);
-  const values2 = songs.map(song => song[col2]);
+  const values2 = songs.map(song => song[col2] as number);
 
   const mean1 = values1.reduce((a, b) => a + b) / values1.length;
   const mean2 = values2.reduce((a, b) => a + b) / values2.length;
