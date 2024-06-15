@@ -27,29 +27,37 @@ import Drawer from "./Drawer";
 import NavButton from "./NavButton";
 
 const links = [
-  { t: "Data de Lançamento", h: "/release-date" },
-  { t: "Número da Faixa", h: "/track-number" },
-  { t: "Métricas ao Longo dos Anos", h: "/metrics-over-time" },
-  { t: "Métricas por Tamanho do Álbum", h: "/metrics-by-album-size" },
-  { t: "Lançamento dos Álbuns", h: "/album-gap" },
-  { t: "Popularidade por Duração", h: "/duration-popularity" },
-  { t: "Correlação entre Métricas", h: "/correlations" },
+  { t: "Release Date", h: "/release-date" },
+  { t: "Track Number", h: "/track-number" },
+  { t: "Metrics Over Time", h: "/metrics-over-time" },
+  { t: "Metrics By Album Size", h: "/metrics-by-album-size" },
+  { t: "Album", h: "/album-gap" },
+  { t: "Popularidade", h: "/duration-popularity" },
+  { t: "Correlations", h: "/correlations" },
 ];
 
 export function LayoutComponent({ children }) {
   return (
-    <div className="flex flex-col w-full min-h-screen bg-[#0D9D55] dark:bg-[#0B7B43]">
-      <header className="bg-[#0D9D55] dark:bg-[#0B7B43] shadow">
+    <div className="flex flex-col w-full min-h-screen bg-[#242424] dark:bg-[#242424]">
+      <header className="bg-[#121212] dark:bg-[#121212] shadow">
         <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-white">
-                Análise de dataset de músicas do Spotify
+
+            <div className=" flex items-center justify-center">
+              <div className="mr-4">
+                <img src="https://img.icons8.com/?size=100&id=11116&format=png&color=FFFFFF"   className="w-12" />
+              </div>
+
+              <div>
+              <h1 className="text-xl font-bold text-white">
+                Análise de Dados no Spotify
               </h1>
-              <p className="text-gray-200 mt-2">
-                Trabalho final de Visualização de Dados - 2024/1
+              <p className="text-[13px] text-gray-200 mt-0">
+                Fatores de Sucesso de Artistas e Músicas na Era do Streaming
               </p>
             </div>
+            </div>
+
             <NavButton />
           </div>
         </div>
@@ -61,3 +69,4 @@ export function LayoutComponent({ children }) {
     </div>
   );
 }
+
