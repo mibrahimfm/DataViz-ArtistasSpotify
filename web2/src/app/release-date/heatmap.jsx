@@ -79,7 +79,7 @@ const Heatmap = ({ data }) => {
             hoverinfo: "text", // Add this line to ensure hover text is used
             hovertemplate: "%{text}<extra></extra>",
             colorbar: {
-              title: "Popularidade Média (%)",
+              title: "Frequência de Lançamento (%)",
               titleside: "right",
             },
           },
