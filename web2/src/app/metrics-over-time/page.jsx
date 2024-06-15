@@ -8,7 +8,7 @@ export default async function MetricsOverTimePage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Métricas por artista ao longo do tempo</CardTitle>
+        <CardTitle>Métricas por Artista ao Longo dos Anos</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-wrap justify-center">
         <LineChart data={songs} />

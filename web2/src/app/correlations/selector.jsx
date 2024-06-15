@@ -12,7 +12,7 @@ const ArtistSelector = ({ data }) => {
   };
 
   return (
-    <div>
+    <div className="text-center">
       <label htmlFor="artist-select">Escolha um Artista: </label>
       <select
         id="artist-select"

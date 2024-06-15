@@ -29,7 +29,7 @@ import NavButton from "./NavButton";
 const links = [
   { t: "Data de Lançamento", h: "/release-date" },
   { t: "Número da Faixa", h: "/track-number" },
-  { t: "Métricas ao Longo do Tempo", h: "/metrics-over-time" },
+  { t: "Métricas ao Longo dos Anos", h: "/metrics-over-time" },
   { t: "Métricas por Tamanho do Álbum", h: "/metrics-by-album-size" },
   { t: "Lançamento dos Álbuns", h: "/album-gap" },
   { t: "Popularidade por Duração", h: "/duration-popularity" },

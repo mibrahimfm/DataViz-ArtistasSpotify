@@ -8,9 +8,7 @@ export default async function ReleaseDatePage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
-          Correlação entre Métrica e Popularidade por Artista e Álbum
-        </CardTitle>
+        <CardTitle>Correlação entre Métricas por Artista e Álbum</CardTitle>
       </CardHeader>
       <CardContent>
         <ArtistSelector data={songs} />

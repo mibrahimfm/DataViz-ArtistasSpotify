@@ -10,7 +10,7 @@ export default async function ReleaseDatePage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Análise da popularidade por número da faixa</CardTitle>
+        <CardTitle>Análise da Popularidade por Número da Faixa</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-wrap justify-center">
         <ScatterPlot data={songs} />

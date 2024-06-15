@@ -67,7 +67,7 @@ const LineChart = ({ data }) => {
       >
         {metrics.map((metric) => (
           <option key={metric} value={metric}>
-            {capitalize(metric)}
+            {capitalize(metric, true)}
           </option>
         ))}
       </select>
@@ -76,7 +76,12 @@ const LineChart = ({ data }) => {
         <Plot
           data={chartData}
           layout={{
-            title: `${capitalize(metric)} vs. Ano de lançamento por Artista`,
+            title: `${capitalize(
+              metric,
+              true
+            )} vs. Ano de lançamento por Artista`,
+            height: 600,
+            width: 800,
             xaxis: {
               title: "Ano",
               tickmode: "linear",
@@ -86,7 +91,7 @@ const LineChart = ({ data }) => {
               automargin: true,
             },
             yaxis: {
-              title: `${capitalize(metric)} (média)`,
+              title: `${capitalize(metric, true)} (média)`,
             },
             plot_bgcolor: "rgba(0, 0, 0, 0)",
             paper_bgcolor: "rgba(0, 0, 0, 0)",

@@ -5,36 +5,33 @@ import { useEffect, useState } from "react";
 const parseAlbumName = (album) =>
   album.length > 15 ? album.slice(0, 15) + "..." : album;
 
-const getCorrelationMatrixByAlbum = (songs) => {
-  const quantitativeColumns = [
-    "track_number",
-    "acousticness",
-    "danceability",
-    "energy",
-    "instrumentalness",
-    "liveness",
-    "loudness",
-    "speechiness",
-    "tempo",
-    "valence",
-    "duration_ms",
-  ];
+const quantitativeColumns = [
+  "track_number",
+  "acousticness",
+  "danceability",
+  "energy",
+  "instrumentalness",
+  "liveness",
+  "loudness",
+  "speechiness",
+  "tempo",
+  "valence",
+  "duration_ms",
+  "popularity",
+];
 
-  // Initialize correlation matrix
+const getCorrelationMatrixByAlbum = (songs, targetFeature) => {
   const correlationMatrix = [];
 
-  // Iterate over each album
   const albumsSet = new Set(songs.map((song) => song.album));
   albumsSet.forEach((album) => {
-    // Filter songs for the current album
     const albumSongs = songs.filter((song) => song.album === album);
-    // Calculate correlations for each feature in relation to 'popularity'
     quantitativeColumns.forEach((feature) => {
-      if (feature !== "popularity") {
+      if (feature !== targetFeature) {
         const correlation = calculateCorrelation(
           albumSongs,
           feature,
-          "popularity"
+          targetFeature
         );
         correlationMatrix.push({
           album: album,
@@ -69,73 +66,92 @@ const calculateCorrelation = (songs, col1, col2) => {
 
 const CorrelationHeatmap = ({ data, selectedArtist }) => {
   const [correlationMatrix, setCorrelationMatrix] = useState([]);
+  const [targetFeature, setTargetFeature] = useState("popularity");
 
   useEffect(() => {
     if (selectedArtist && data[selectedArtist]) {
       const songs = data[selectedArtist];
-      const correlationData = getCorrelationMatrixByAlbum(songs);
+      const correlationData = getCorrelationMatrixByAlbum(songs, targetFeature);
       setCorrelationMatrix(correlationData);
     }
-  }, [data, selectedArtist]);
+  }, [data, selectedArtist, targetFeature]);
 
   const albums = Array.from(
     new Set(correlationMatrix.map((data) => data.album))
   );
-  const features = Array.from(
-    new Set(correlationMatrix.map((data) => data.feature))
+  const features = quantitativeColumns.filter(
+    (feature) => feature !== targetFeature
   );
 
   return (
-    <Plot
-      data={[
-        {
-          x: albums.map(parseAlbumName),
-          y: features,
-          z: features.map((feature) => {
-            return albums.map((album) => {
-              const correlationData = correlationMatrix.find(
-                (data) => data.album === album && data.feature === feature
-              );
-              return correlationData ? correlationData.correlation : 0;
-            });
-          }),
-          type: "heatmap",
-          colorscale: "coolwarm",
-          zmin: -1,
-          zmax: 1,
-          colorbar: {
-            title: "Correlação com Popularidade",
-            titleside: "right",
+    <div>
+      <label htmlFor="target-feature-select">
+        Selecione a métrica a ser correlacionada:{" "}
+      </label>
+      <select
+        id="target-feature-select"
+        value={targetFeature}
+        onChange={(e) => setTargetFeature(e.target.value)}
+      >
+        {quantitativeColumns.map((feature) => (
+          <option key={feature} value={feature}>
+            {capitalize(feature, true)}
+          </option>
+        ))}
+      </select>
+
+      <Plot
+        data={[
+          {
+            x: albums.map(parseAlbumName),
+            y: features.map((feature) => capitalize(feature, true)),
+            z: features.map((feature) => {
+              return albums.map((album) => {
+                const correlationData = correlationMatrix.find(
+                  (data) => data.album === album && data.feature === feature
+                );
+                return correlationData ? correlationData.correlation : 0;
+              });
+            }),
+            type: "heatmap",
+            colorscale: "coolwarm",
+            zmin: -1,
+            zmax: 1,
+            colorbar: {
+              title: `Correlação com ${capitalize(targetFeature, true)}`,
+              titleside: "right",
+            },
           },
-        },
-      ]}
-      layout={{
-        title: `Heatmap de correlação: ${capitalize(selectedArtist, true)}`,
-        height: 450,
-        xaxis: {
-          title: {
-            text: "Álbuns",
-            standoff: 20,
+        ]}
+        layout={{
+          title: `Heatmap de correlação: ${capitalize(selectedArtist, true)}`,
+          height: 600,
+          width: 800,
+          xaxis: {
+            title: {
+              text: "Álbuns",
+              standoff: 20,
+            },
+            tickangle: -45, // Inclinar os rótulos para melhor legibilidade
           },
-          tickangle: -45, // Tilt the labels for better readability
-        },
-        yaxis: {
-          title: {
-            text: "Métricas",
-            standoff: 20,
+          yaxis: {
+            title: {
+              text: "Métricas",
+              standoff: 20,
+            },
+            automargin: true,
           },
-          automargin: true,
-        },
-        plot_bgcolor: "rgba(0, 0, 0, 0)",
-        paper_bgcolor: "rgba(0, 0, 0, 0)",
-        margin: {
-          l: 100, // Adjust the left margin to accommodate y-axis labels
-          r: 20,
-          t: 60, // Adjust the top margin for the title
-          b: 120, // Adjust the bottom margin to accommodate x-axis labels
-        },
-      }}
-    />
+          plot_bgcolor: "rgba(0, 0, 0, 0)",
+          paper_bgcolor: "rgba(0, 0, 0, 0)",
+          margin: {
+            l: 100, // Ajuste a margem esquerda para acomodar os rótulos do eixo y
+            r: 20,
+            t: 60, // Ajuste a margem superior para o título
+            b: 120, // Ajuste a margem inferior para acomodar os rótulos do eixo x
+          },
+        }}
+      />
+    </div>
   );
 };
 

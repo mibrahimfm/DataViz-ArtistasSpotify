@@ -9,7 +9,7 @@ export default async function ReleaseDatePage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Analise de data de lançamento das músicas</CardTitle>
+        <CardTitle>Analise de Data de Lançamento das Músicas</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-wrap justify-center">
         <Heatmap data={songs} />

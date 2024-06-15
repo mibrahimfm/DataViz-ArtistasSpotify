@@ -101,7 +101,7 @@ const LineChart = ({ data }) => {
   ];
 
   return (
-    <div>
+    <div className="text-center">
       <label htmlFor="metric-select">Selecione a métrica</label>
       <select
         id="metric-select"
@@ -111,7 +111,7 @@ const LineChart = ({ data }) => {
       >
         {metrics.map((metric) => (
           <option key={metric} value={metric}>
-            {capitalize(metric)}
+            {capitalize(metric, true)}
           </option>
         ))}
       </select>
@@ -133,7 +133,7 @@ const LineChart = ({ data }) => {
               automargin: true,
             },
             yaxis: {
-              title: `${capitalize(metric)} (média)`,
+              title: `${capitalize(metric, true)} (média)`,
             },
             plot_bgcolor: "rgba(0, 0, 0, 0)",
             paper_bgcolor: "rgba(0, 0, 0, 0)",

@@ -86,7 +86,7 @@ const Heatmap = ({ data }) => {
         ]}
         layout={{
           title: {
-            text: "Frequência de lançamento por mês e artista",
+            text: "Frequência de Lançamento por Mês e Artista",
             x: 0.5,
             xanchor: "center",
           },

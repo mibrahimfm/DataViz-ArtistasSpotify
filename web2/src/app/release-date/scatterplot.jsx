@@ -60,7 +60,7 @@ const ScatterPlot = ({ data }) => {
         data={scatterData}
         layout={{
           title:
-            "Correlação entre popularidade e mês de lançamento das músicas por artista",
+            "Correlação entre Popularidade e Mês de Lançamento das Músicas por Artista",
           xaxis: {
             title: "Mês",
           },
