@@ -104,10 +104,26 @@ const CorrelationHeatmap = ({ data, selectedArtist }) => {
       layout={{
         title: `Correlation Heatmap for ${selectedArtist}`,
         xaxis: {
-          title: "Albums",
+          title: {
+            text: "Albums",
+            standoff: 20,
+          },
+          tickangle: -45, // Tilt the labels for better readability
         },
         yaxis: {
-          title: "Features",
+          title: {
+            text: "Features",
+            standoff: 20,
+          },
+          automargin: true,
+        },
+        plot_bgcolor: "rgba(0, 0, 0, 0)",
+        paper_bgcolor: "rgba(0, 0, 0, 0)",
+        margin: {
+          l: 100, // Adjust the left margin to accommodate y-axis labels
+          r: 20,
+          t: 60, // Adjust the top margin for the title
+          b: 100, // Adjust the bottom margin to accommodate x-axis labels
         },
       }}
     />

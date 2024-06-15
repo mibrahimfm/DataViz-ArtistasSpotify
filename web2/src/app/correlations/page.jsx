@@ -8,7 +8,7 @@ export default async function ReleaseDatePage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Title</CardTitle>
+        <CardTitle>Correlação entre Métrica e Artistas</CardTitle>
       </CardHeader>
       <CardContent>
         <ArtistSelector data={songs} />

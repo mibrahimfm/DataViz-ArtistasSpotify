@@ -46,7 +46,7 @@ const PlotComponent = ({ data }) => {
     y: processedData.map((d) => d.maxPopularity),
     type: "scatter",
     mode: "lines+markers",
-    name: "Max Popularity",
+    name: "Popularidade Máxima",
     marker: { color: "blue" },
   };
 
@@ -54,7 +54,7 @@ const PlotComponent = ({ data }) => {
     x: processedData.map((d) => d.year),
     y: processedData.map((d) => d.releases),
     type: "bar",
-    name: "Releases",
+    name: "Lançamentos",
     marker: { color: "orange" },
   };
 
@@ -62,10 +62,10 @@ const PlotComponent = ({ data }) => {
     <Plot
       data={[lineChartData, barChartData]}
       layout={{
-        title: "Maximum Popularity and Releases by Year for Each Artist",
+        title: "Popularidade Máxima e Lançamentos por Ano para cada Artista",
         barmode: "group",
-        xaxis: { title: "Year", tickangle: -45 },
-        yaxis: { title: "Popularity/Releases" },
+        xaxis: { title: "Ano", tickangle: -45 },
+        yaxis: { title: "Popularidade/Lançamentos" },
         showlegend: true,
         legend: { x: 1, xanchor: "right", y: 1 },
       }}

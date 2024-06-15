@@ -13,7 +13,7 @@ const ArtistSelector = ({ data }) => {
 
   return (
     <div>
-      <label htmlFor="artist-select">Choose an artist: </label>
+      <label htmlFor="artist-select">Escolha um Artista: </label>
       <select
         id="artist-select"
         value={selectedArtist}

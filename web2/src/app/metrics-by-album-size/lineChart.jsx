@@ -60,7 +60,7 @@ const LineChart = ({ data }) => {
 
     return [
       {
-        name: `${capitalize(artist.replace("_", " "))} - Data`,
+        name: `${capitalize(artist.replace("_", " "))} - Dados`,
         x: sizes,
         y: averages,
         mode: "markers",
@@ -72,7 +72,7 @@ const LineChart = ({ data }) => {
         )}:</b> %{y}<extra></extra>`,
       },
       {
-        name: `${capitalize(artist.replace("_", " "))} - Trendline`,
+        name: `${capitalize(artist.replace("_", " "))} - Tendência`,
         x: sizes,
         y: trendline,
         mode: "lines",
@@ -101,8 +101,8 @@ const LineChart = ({ data }) => {
   ];
 
   return (
-    <div className={styles.main}>
-      <label htmlFor="metric-select">Select Metric</label>
+    <div>
+      <label htmlFor="metric-select">Selecione a métrica</label>
       <select
         id="metric-select"
         value={metric}
@@ -116,27 +116,30 @@ const LineChart = ({ data }) => {
         ))}
       </select>
 
-      <Plot
-        data={chartData}
-        layout={{
-          title: `${capitalize(metric)} vs. Album Size for All Artists`,
-          width: 1200,
-          height: 800,
-          xaxis: {
-            title: "Album Size",
-            tickmode: "linear",
-            tick0: Math.min(...chartData.flatMap((artist) => artist.x)),
-            dtick: 5,
-            tickangle: -45,
-            automargin: true,
-          },
-          yaxis: {
-            title: `Average ${capitalize(metric)}`,
-          },
-          plot_bgcolor: "rgba(0, 0, 0, 0)",
-          paper_bgcolor: "rgba(0, 0, 0, 0)",
-        }}
-      />
+      <div>
+        <Plot
+          data={chartData}
+          layout={{
+            title: `${capitalize(
+              metric
+            )} vs. Tamanho do Álbum para cada Artista`,
+            height: 600,
+            width: 800,
+            xaxis: {
+              title: "Tamanho do Álbum",
+              tickmode: "linear",
+              tick0: Math.min(...chartData.flatMap((artist) => artist.x)),
+              dtick: 10,
+              automargin: true,
+            },
+            yaxis: {
+              title: `${capitalize(metric)} (média)`,
+            },
+            plot_bgcolor: "rgba(0, 0, 0, 0)",
+            paper_bgcolor: "rgba(0, 0, 0, 0)",
+          }}
+        />
+      </div>
     </div>
   );
 };
